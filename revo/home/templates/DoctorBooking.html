@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Booking</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Book Doctor Appointment</h2>
+  <form id="doctorForm" onsubmit="submitForm(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="specialization">Specialization:</label>
+    <select id="specialization" name="specialization" required>
+      <option value="Cardiology">Cardiology</option>
+      <option value="Dermatology">Dermatology</option>
+      <option value="Neurology">Neurology</option>
+      <option value="Oncology">Oncology</option>
+      <option value="Pediatrics">Pediatrics</option>
+      <option value="Psychiatry">Psychiatry</option>
+      <option value="Psychiatry">Orthopedic</option>
+      <!-- Add more options as needed -->
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" required>
+
+    <input type="submit" value="Book Appointment">
+  </form>
+</div>
+
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+    // Get form data
+    const formData = new FormData(event.target);
+    const formDataObj = Object.fromEntries(formData.entries());
+    
+    // Simulate sending data to server (replace with actual API call)
+    console.log("Form data:", formDataObj);
+    
+    // Reset form after submission
+    event.target.reset();
+  }
+</script>
+
+</body>
+</html>
